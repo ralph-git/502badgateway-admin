@@ -42,11 +42,11 @@
 								</div>
 								<div class="card">
 									<div class="card-body">
-										<h5 class="card-title mb-4">Visitors</h5>
-										<h1 class="mt-1 mb-3">14.212</h1>
+										<h5 class="card-title mb-4">Absentee Rate</h5>
+										<h1 class="mt-1 mb-3">2.76%</h1>
 										<div class="mb-1">
-											<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
-											<span class="text-muted">Since last week</span>
+											<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i>-0.56%</span>
+											<span class="text-muted">from last week</span>
 										</div>
 									</div>
 								</div>
@@ -54,18 +54,18 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-body">
-										<h5 class="card-title mb-4">Earnings</h5>
-										<h1 class="mt-1 mb-3">$21.300</h1>
+										<h5 class="card-title mb-4">Average Work Rhythm Rate</h5>
+										<h1 class="mt-1 mb-3">3.9 hours</h1>
 										<div class="mb-1">
-											<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
-											<span class="text-muted">Since last week</span>
+											<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> +1.2 hours </span>
+											<span class="text-muted">froom last week</span>
 										</div>
 									</div>
 								</div>
 								<div class="card">
 									<div class="card-body">
-										<h5 class="card-title mb-4">Orders</h5>
-										<h1 class="mt-1 mb-3">64</h1>
+										<h5 class="card-title mb-4">Workforce Utilization</h5>
+										<h1 class="mt-1 mb-3">96%</h1>
 										<div class="mb-1">
 											<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
 											<span class="text-muted">Since last week</span>
@@ -81,7 +81,7 @@
 					<div class="card flex-fill w-100">
 						<div class="card-header">
 
-							<h5 class="card-title mb-0">Recent Movement</h5>
+							<h5 class="card-title mb-0">Weekly Employee Movement</h5>
 						</div>
 						<div class="card-body py-3">
 							<div class="chart chart-sm">
@@ -97,7 +97,7 @@
 					<div class="card flex-fill w-100">
 						<div class="card-header">
 
-							<h5 class="card-title mb-0">Browser Usage</h5>
+							<h5 class="card-title mb-0">Breakdown Per Department</h5>
 						</div>
 						<div class="card-body d-flex">
 							<div class="align-self-center w-100">
@@ -110,16 +110,24 @@
 								<table class="table mb-0">
 									<tbody>
 										<tr>
-											<td>Chrome</td>
-											<td class="text-right">4306</td>
+											<td>IT</td>
+											<td class="text-right">30</td>
 										</tr>
 										<tr>
-											<td>Firefox</td>
-											<td class="text-right">3801</td>
+											<td>HR</td>
+											<td class="text-right">28</td>
 										</tr>
 										<tr>
-											<td>IE</td>
-											<td class="text-right">1689</td>
+											<td>Operations</td>
+											<td class="text-right">33</td>
+										</tr>
+										<tr>
+											<td>Sales & Marketing</td>
+											<td class="text-right">32</td>
+										</tr>
+										<tr>
+											<td>Finance</td>
+											<td class="text-right">36</td>
 										</tr>
 									</tbody>
 								</table>
@@ -266,25 +274,20 @@
 			new Chart(document.getElementById("chartjs-dashboard-line"), {
 				type: "line",
 				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					labels: ["Aug 1", "Aug 2", "Aug 3", "Aug 4", "Aug 5", "Aug 8", "Aug 9"],
 					datasets: [{
 						label: "Sales ($)",
 						fill: true,
 						backgroundColor: gradient,
 						borderColor: window.theme.primary,
 						data: [
-							2115,
-							1562,
-							1584,
-							1892,
-							1587,
-							1923,
-							2566,
-							2448,
-							2805,
-							3438,
-							2917,
-							3327
+							142,
+							167,
+							158,
+							144,
+							151,
+							149,
+							159
 						]
 					}]
 				},
@@ -332,13 +335,15 @@
 			new Chart(document.getElementById("chartjs-dashboard-pie"), {
 				type: "pie",
 				data: {
-					labels: ["Chrome", "Firefox", "IE"],
+					labels: ["IT", "HR", "Operations", "Sales & Marketing", "Finance"],
 					datasets: [{
-						data: [4306, 3801, 1689],
+						data: [30, 28, 33, 32, 36],
 						backgroundColor: [
 							window.theme.primary,
 							window.theme.warning,
-							window.theme.danger
+							window.theme.danger,
+							window.theme.success,
+							window.theme.secondary
 						],
 						borderWidth: 5
 					}]
