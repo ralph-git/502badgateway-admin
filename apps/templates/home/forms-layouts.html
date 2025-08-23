@@ -1,214 +1,316 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Forms Layouts {% endblock %} 
+{% block title %}HR Employee Dashboard{% endblock %}
 
-<!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+<style>
+  .kpi-card { min-height: 120px; }
+  .avatar { width: 28px; height: 28px; border-radius: 999px; object-fit: cover; }
+  .table-sticky thead th { position: sticky; top: 0; background: #fff; z-index: 2; }
+  .flag-badge { font-size: .75rem; }
+  .risk-low { background: #e8f5e9; }
+  .risk-med { background: #fff8e1; }
+  .risk-high { background: #ffebee; }
+  :root { --panel-height: 360px; }     /* tweak this number */
+  .equal-panel .card-body { height: var(--panel-height); }
+  .equal-panel .table-wrap { height: var(--panel-height); overflow: auto; }
+  .equal-panel .chart-wrap { height: var(--panel-height); }
+</style>
+{% endblock stylesheets %}
 
 {% block content %}
+<main class="content">
+  <div class="container-fluid p-0">
 
-	<main class="content">
-		<div class="container-fluid p-0">
+    <div class="row">
 
-			<h1 class="h3 mb-3">Form Layouts</h1>
+    </div>
 
-			<div class="row">
-				<div class="col-12 col-xl-6">
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title">Basic form</h5>
-							<h6 class="card-subtitle text-muted">Default Bootstrap form layout.</h6>
-						</div>
-						<div class="card-body">
-							<form>
-								<div class="mb-3">
-									<label class="form-label">Email address</label>
-									<input type="email" class="form-control" placeholder="Email">
-								</div>
-								<div class="mb-3">
-									<label class="form-label">Password</label>
-									<input type="password" class="form-control" placeholder="Password">
-								</div>
-								<div class="mb-3">
-									<label class="form-label">Textarea</label>
-									<textarea class="form-control" placeholder="Textarea" rows="1"></textarea>
-								</div>
-								<div class="mb-3">
-									<label class="form-label w-100">File input</label>
-									<input type="file">
-									<small class="form-text text-muted">Example block-level help text here.</small>
-								</div>
-								<div class="mb-3">
-									<label class="form-check m-0">
-										<input type="checkbox" class="form-check-input">
-										<span class="form-check-label">Check me out</span>
-									</label>
-								</div>
-								<button type="submit" class="btn btn-primary">Submit</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-xl-6">
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title">Horizontal form</h5>
-							<h6 class="card-subtitle text-muted">Horizontal Bootstrap layout.</h6>
-						</div>
-						<div class="card-body">
-							<form>
-								<div class="mb-3 row">
-									<label class="col-form-label col-sm-2 text-sm-right">Email</label>
-									<div class="col-sm-10">
-										<input type="email" class="form-control" placeholder="Email">
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label class="col-form-label col-sm-2 text-sm-right">Password</label>
-									<div class="col-sm-10">
-										<input type="password" class="form-control" placeholder="Password">
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label class="col-form-label col-sm-2 text-sm-right">Textarea</label>
-									<div class="col-sm-10">
-										<textarea class="form-control" placeholder="Textarea" rows="3"></textarea>
-									</div>
-								</div>
-								<fieldset class="mb-3">
-									<div class="row">
-										<label class="col-form-label col-sm-2 text-sm-right pt-sm-0">Radios</label>
-										<div class="col-sm-10">
-											<label class="form-check">
-												<input name="radio-3" type="radio" class="form-check-input" checked>
-												<span class="form-check-label">Default radio</span>
-											</label>
-											<label class="form-check">
-												<input name="radio-3" type="radio" class="form-check-input">
-												<span class="form-check-label">Second default radio</span>
-											</label>
-											<label class="form-check">
-												<input name="radio-3" type="radio" class="form-check-input" disabled>
-												<span class="form-check-label">Disabled radio</span>
-											</label>
-										</div>
-									</div>
-								</fieldset>
-								<div class="mb-3 row">
-									<label class="col-form-label col-sm-2 text-sm-right pt-sm-0">Checkbox</label>
-									<div class="col-sm-10">
-										<label class="form-check m-0">
-											<input type="checkbox" class="form-check-input">
-											<span class="form-check-label">Check me out</span>
-										</label>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<div class="col-sm-10 ml-sm-auto">
-										<button type="submit" class="btn btn-primary">Submit</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
+    <!-- Behavioral Analytics: MUNE-MUNIAN -->
+    <div class="d-flex align-items-center justify-content-between mt-4 mb-2">
+      <h2 class="h4 mb-0"><i class="align-middle mr-2" data-feather="activity"></i> Behavioral Analytics – MUNE‑MUNIAN</h2>
+      <span class="text-muted small">Transparent, explainable signals (demo data)</span>
+    </div>
 
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title">Form row</h5>
-							<h6 class="card-subtitle text-muted">Bootstrap column layout.</h6>
-						</div>
-						<div class="card-body">
-							<form>
-								<div class="row">
-									<div class="mb-3 col-md-6">
-										<label class="form-label" for="inputEmail4">Email</label>
-										<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-									</div>
-									<div class="mb-3 col-md-6">
-										<label class="form-label" for="inputPassword4">Password</label>
-										<input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-									</div>
-								</div>
-								<div class="mb-3">
-									<label class="form-label" for="inputAddress">Address</label>
-									<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-								</div>
-								<div class="mb-3">
-									<label class="form-label" for="inputAddress2">Address 2</label>
-									<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-								</div>
-								<div class="row">
-									<div class="mb-3 col-md-6">
-										<label class="form-label" for="inputCity">City</label>
-										<input type="text" class="form-control" id="inputCity">
-									</div>
-									<div class="mb-3 col-md-4">
-										<label class="form-label" for="inputState">State</label>
-										<select id="inputState" class="form-control">
-											<option selected>Choose...</option>
-											<option>...</option>
-										</select>
-									</div>
-									<div class="mb-3 col-md-2">
-										<label class="form-label" for="inputZip">Zip</label>
-										<input type="text" class="form-control" id="inputZip">
-									</div>
-								</div>
-								<div class="mb-3">
-									<label class="form-label" class="form-check m-0">
-										<input type="checkbox" class="form-check-input">
-										<span class="form-check-label">Check me out</span>
-									</label>
-								</div>
-								<button type="submit" class="btn btn-primary">Submit</button>
-							</form>
-						</div>
-					</div>
-				</div>
+    <!-- Behavior KPIs -->
+    <div class="row">
+      <div class="col-sm-6 col-lg-3 mb-3">
+        <div class="card kpi-card shadow-sm">
+          <div class="card-body">
+            <div class="text-muted small">AWOL Rate (30d)</div>
+            <div class="h3 mb-0">1.8%</div>
+            <small class="text-muted">Sick 4.2% · Vacation 6.5%</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 mb-3">
+        <div class="card kpi-card shadow-sm">
+          <div class="card-body">
+            <div class="text-muted small">After‑hours Activity</div>
+            <div class="h3 mb-0">22%</div>
+            <small class="text-muted">Share of events 8pm–7am</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 mb-3">
+        <div class="card kpi-card shadow-sm">
+          <div class="card-body">
+            <div class="text-muted small">Median Response Delay</div>
+            <div class="h3 mb-0">37m</div>
+            <small class="text-muted">Email/Teams</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 mb-3">
+        <div class="card kpi-card shadow-sm">
+          <div class="card-body">
+            <div class="text-muted small">Collaboration Sentiment</div>
+            <div class="h3 mb-0">+0.21</div>
+            <small class="text-muted">Tone score (‑1..+1)</small>
+          </div>
+        </div>
+      </div>
+    </div>
 
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title">Inline form</h5>
-							<h6 class="card-subtitle text-muted">Single horizontal row.</h6>
-						</div>
-						<div class="card-body">
-							<form class="row row-cols-md-auto align-items-center">
-								<div class="col-12">
-									<label class="sr-only" for="inlineFormInputName2">Name</label>
-									<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
-								</div>
+<div class="row align-items-stretch">
+ 
+  <div class="col-lg-6">
+    <div class="card shadow-sm mb-3">
+      <div class="card-header">
+        <h3 class="card-title mb-0">Leave Usage Mix</h3>
+        <div class="card-subtitle text-muted">AWOL, Sick, Vacation by month</div>
+      </div>
+      <div class="card-body">
+        <canvas id="leaveChart" height="130"></canvas>
+      </div>
+    </div>
 
-								<div class="col-12">
-									<label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-text">@</div>
-										<input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-									</div>
-								</div>
+   
+    <div class="card shadow-sm table-sticky equal-panel" id="recentHires">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0">Recent Hires</h3>
+        <div class="small text-muted">Past 3 months</div>
+      </div>
+      <div class="card-body p-0 table-wrap">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Department</th>
+                <th>Start Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img class="avatar mr-2" src="https://i.pravatar.cc/48?img=7"> Gina Torres</td>
+                <td>Engineering</td>
+                <td>2025-06-15</td>
+                <td><span class="badge badge-success">Active</span></td>
+              </tr>
+              <tr>
+                <td><img class="avatar mr-2" src="https://i.pravatar.cc/48?img=8"> Henry Lee</td>
+                <td>Design</td>
+                <td>2025-07-01</td>
+                <td><span class="badge badge-success">Active</span></td>
+              </tr>
+              <tr>
+                <td><img class="avatar mr-2" src="https://i.pravatar.cc/48?img=9"> Isabel Garcia</td>
+                <td>Marketing</td>
+                <td>2025-07-20</td>
+                <td><span class="badge badge-success">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
-								<div class="col-12">
-									<div class="form-check mb-1 mr-sm-2">
-										<input type="checkbox" class="form-check-input" id="customControlInline">
-										<label class="form-check-label" for="customControlInline">Remember me</label>
-									</div>
-								</div>
 
-								<div class="col-12">
-									<button type="submit" class="btn btn-primary mb-2">Submit</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-
+  <div class="col-lg-6 d-flex">
+    <div class="card shadow-sm flex-grow-1 d-flex flex-column">
+      <div class="card-header">
+        <h3 class="card-title mb-0">Work Rhythms</h3>
+        <div class="card-subtitle text-muted">Meeting freq, after-hours, response delay, task switching</div>
+      </div>
+      <div class="card-body d-flex flex-column">
+		<div class="flex-grow-1" id="rhythmWrap" style="min-height:0;">
+        	<canvas id="rhythmChart"></canvas>
 		</div>
-	</main>
+      </div>
+    </div>
 
+  </div>
+</div>
+	
+
+    <div class="row">
+      <div class="col-lg-6 mb-3">
+        <div class="card shadow-sm">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+              <h3 class="card-title mb-0">Sentiment & After‑hours Trend</h3>
+              <div class="card-subtitle text-muted">12‑week timeline</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <canvas id="sentimentChart" height="130"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-3">
+        <div class="card shadow-sm">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="card-title mb-0">Explainable Risk & Well‑being</h3>
+            <span class="small text-muted">Forecast (next 4 wks)</span>
+          </div>
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="display-4 mr-3">0.64</div>
+              <div>
+                <div class="text-muted small">Org risk score (0..1)</div>
+                <div class="small">Flags on deviation from personal baseline</div>
+              </div>
+            </div>
+            <canvas id="shapChart" height="120"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mb-3">
+        <div class="card shadow-sm table-sticky">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="card-title mb-0">Behavioral Flags (Examples)</h3>
+            <div class="small text-muted">Private to HR; employee nudges are confidential</div>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th>Employee</th>
+                    <th>Flag</th>
+                    <th>Detail</th>
+                    <th>Suggested Nudge</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="risk-high">
+                    <td><img class="avatar mr-2" src="https://i.pravatar.cc/48?img=10"> Jordan Reyes</td>
+                    <td><span class="badge badge-danger flag-badge">Chronic non‑vacationer</span></td>
+                    <td>No PTO in 9 months; after‑hours 32%</td>
+                    <td>Suggest scheduling a week off; remind manager to support coverage</td>
+                    <td><span class="badge badge-warning">Open</span></td>
+                  </tr>
+                  <tr class="risk-med">
+                    <td><img class="avatar mr-2" src="https://i.pravatar.cc/48?img=11"> Kim Santos</td>
+                    <td><span class="badge badge-warning flag-badge">Late‑night worker</span></td>
+                    <td>Spike in 11pm–2am commits last 3 weeks</td>
+                    <td>Offer focus‑time blocks & async norms</td>
+                    <td><span class="badge badge-secondary">Monitoring</span></td>
+                  </tr>
+                  <tr class="risk-low">
+                    <td><img class="avatar mr-2" src="https://i.pravatar.cc/48?img=12"> Luis Tan</td>
+                    <td><span class="badge badge-info flag-badge">Response delay ↑</span></td>
+                    <td>Median response up from 18m → 41m</td>
+                    <td>Auto‑nudge: set OOO or DND during deep work</td>
+                    <td><span class="badge badge-success">Nudged</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
 {% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+feather.replace();
+
+// --- Existing charts ---
+
+
+// --- Behavioral Analytics charts (placeholder data) ---
+const months = ['Mar','Apr','May','Jun','Jul','Aug'];
+
+new Chart(document.getElementById('leaveChart'), {
+  type: 'bar',
+  data: {
+    labels: months,
+    datasets: [
+      { label: 'AWOL', data: [3,2,4,3,5,2], stack: 'lv' },
+      { label: 'Sick', data: [8,7,6,9,10,8], stack: 'lv' },
+      { label: 'Vacation', data: [12,10,14,9,11,13], stack: 'lv' }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'bottom' } },
+    scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }
+  }
+});
+
+new Chart(document.getElementById('rhythmChart'), {
+  type: 'radar',
+  data: {
+    labels: ['Meeting freq','After-hours %','Response delay','Task switching'],
+    datasets: [
+      { label: 'Current', data: [63, 22, 37, 48] },
+      { label: 'Baseline', data: [52, 15, 24, 35] }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom' } },
+    scales: { r: { beginAtZero: true } }
+  }
+});
+
+new Chart(document.getElementById('sentimentChart'), {
+  type: 'line',
+  data: {
+    labels: Array.from({length: 12}, (_,i)=>`W${i+1}`),
+    datasets: [
+      { label: 'Tone score (‑1..+1)', data: [0.28,0.22,0.18,0.24,0.2,0.16,0.19,0.21,0.18,0.23,0.25,0.21], tension: .35, borderWidth: 2 },
+      { label: 'After‑hours %', data: [18,17,19,21,20,22,25,24,23,22,21,22], type:'bar', yAxisID:'y2' }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'bottom' } },
+    scales: {
+      y: { beginAtZero: true, suggestedMin: -1, suggestedMax: 1 },
+      y2: { position: 'right', grid: { drawOnChartArea: false } }
+    }
+  }
+});
+
+// SHAP-like feature contribution chart (explainability)
+new Chart(document.getElementById('shapChart'), {
+  type: 'bar',
+  data: {
+    labels: ['After‑hours %','Response delay','AWOL rate','Sentiment','Task switching'],
+    datasets: [{ label: 'Risk contribution', data: [0.18, 0.14, 0.12, -0.06, 0.09] }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, suggestedMin: -0.2, suggestedMax: 0.3 } }
+  }
+});
+</script>
+
+<!-- Privacy & ethics note: use opt‑in data collection, clear policy, and avoid punitive use of automated flags. Provide employees with private, supportive nudges. -->
+{% endblock javascripts %}

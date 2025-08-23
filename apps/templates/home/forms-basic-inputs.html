@@ -1,224 +1,305 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Forms Basic {% endblock %} 
+{% block title %}HR · Wellness Nudges{% endblock %}
 
-<!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+<style>
+  .kpi-sub { font-size: .85rem; color: #6c757d; }
+  .chip { display:inline-flex; align-items:center; gap:.35rem; background:#f1f3f5; border-radius:999px; padding:.25rem .6rem; margin:.2rem .25rem; }
+  .chip img { width:22px; height:22px; border-radius:999px; object-fit:cover; }
+  .chip .remove { cursor:default; }
+  .list-group-item small { color:#6c757d; }
+  .preview { background:#fff; border:1px solid #dee2e6; border-radius:.5rem; padding:1rem; min-height:180px; white-space:pre-wrap; }
+  .template-hint { font-size:.8rem; color:#6c757d; }
+  .sticky { position: sticky; top: 0; z-index: 2; }
+</style>
+{% endblock stylesheets %}
 
 {% block content %}
+<main class="content">
+  <div class="container-fluid p-0">
 
-	<main class="content">
-		<div class="container-fluid p-0">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h1 class="h3 mb-0">❤️ Wellness Nudges & Insights</h1>
+      <div class="text-muted">Today is Saturday, August 23, 2025 — 10:00 AM (Asia/Manila)</div>
+    </div>
 
-			<h1 class="h3 mb-3">Basic Inputs</h1>
+    <div class="row">
+      <!-- Audience (static) -->
+      <div class="col-lg-4 mb-3">
+        <div class="card shadow-sm h-100 d-flex flex-column">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <h3 class="card-title mb-0">Audience</h3>
+            <span class="badge badge-light">Private to employee</span>
+          </div>
+          <div class="card-body d-flex flex-column" style="min-height: 320px;">
+            <div class="mb-2"><small class="text-muted">Selected (demo)</small></div>
+            <div id="selectedChips" class="mb-2">
+              <span class="chip"><img src="https://i.pravatar.cc/48?img=1" alt=""> <span>Alex</span></span>
+              <span class="chip"><img src="https://i.pravatar.cc/48?img=2" alt=""> <span>Bianca</span></span>
+              <span class="chip"><img src="https://i.pravatar.cc/48?img=3" alt=""> <span>Carlo</span></span>
+            </div>
 
-			<div class="row">
-				<div class="col-12 col-lg-6">
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Input</h5>
-						</div>
-						<div class="card-body">
-							<input type="text" class="form-control" placeholder="Input">
-						</div>
-					</div>
+            <div class="mt-2 mb-2"><small class="text-muted">Directory (demo)</small></div>
+            <div class="flex-grow-1 overflow-auto">
+              <ul class="list-group">
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <img src="https://i.pravatar.cc/48?img=1" class="mr-2" style="width:28px;height:28px;border-radius:999px;" alt="">
+                    <div>
+                      <div>Alex Santos <small class="text-muted">· Web</small></div>
+                      <small>alex@company.com</small>
+                    </div>
+                  </div>
+                  <span class="badge badge-secondary">Selected</span>
+                </li>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <img src="https://i.pravatar.cc/48?img=2" class="mr-2" style="width:28px;height:28px;border-radius:999px;" alt="">
+                    <div>
+                      <div>Bianca Cruz <small class="text-muted">· Android</small></div>
+                      <small>bianca@company.com</small>
+                    </div>
+                  </div>
+                  <span class="badge badge-secondary">Selected</span>
+                </li>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <img src="https://i.pravatar.cc/48?img=3" class="mr-2" style="width:28px;height:28px;border-radius:999px;" alt="">
+                    <div>
+                      <div>Carlo Dizon <small class="text-muted">· Data</small></div>
+                      <small>carlo@company.com</small>
+                    </div>
+                  </div>
+                  <span class="badge badge-secondary">Selected</span>
+                </li>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <img src="https://i.pravatar.cc/48?img=4" class="mr-2" style="width:28px;height:28px;border-radius:999px;" alt="">
+                    <div>
+                      <div>Diane Uy <small class="text-muted">· iOS</small></div>
+                      <small>diane@company.com</small>
+                    </div>
+                  </div>
+                  <span class="badge badge-light">—</span>
+                </li>
+              </ul>
+            </div>
 
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Textarea</h5>
-						</div>
-						<div class="card-body">
-							<textarea class="form-control" rows="2" placeholder="Textarea"></textarea>
-						</div>
-					</div>
+            <div class="mt-3 small text-muted">
+              Use variables in messages:
+              <code>{% templatetag openvariable %}first_name{% templatetag closevariable %}</code>,
+              <code>{% templatetag openvariable %}manager_name{% templatetag closevariable %}</code>,
+              <code>{% templatetag openvariable %}team{% templatetag closevariable %}</code>,
+              <code>{% templatetag openvariable %}pto_balance{% templatetag closevariable %}</code>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Composer (editable) -->
+<div class="col-lg-8 mb-3">
+  <div class="card shadow-sm">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <h3 class="card-title mb-0">Compose Nudge</h3>
+      <div>
+        <div class="custom-control custom-checkbox d-inline-block mr-3">
+          <input type="checkbox" class="custom-control-input" id="channelEmail" checked>
+          <label class="custom-control-label" for="channelEmail">Email</label>
+        </div>
+        <div class="custom-control custom-checkbox d-inline-block">
+          <input type="checkbox" class="custom-control-input" id="channelTeams" checked>
+          <label class="custom-control-label" for="channelTeams">Teams</label>
+        </div>
+      </div>
+    </div>
 
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Checkboxes</h5>
-						</div>
-						<div class="card-body">
-							<div>
-								<label class="form-check">
-									<input class="form-check-input" type="checkbox" value="">
-									<span class="form-check-label">
-									Option one is this and that&mdash;be sure to include why it's great
-									</span>
-								</label>
-								<label class="form-check">
-									<input class="form-check-input" type="checkbox" value="" disabled>
-									<span class="form-check-label">
-									Option two is disabled
-									</span>
-								</label>
-							</div>
-							<div>
-								<label class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" value="option1">
-									<span class="form-check-label">
-									1
-									</span>
-								</label>
-								<label class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" value="option2">
-									<span class="form-check-label">
-									2
-									</span>
-								</label>
-								<label class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" value="option3" disabled>
-									<span class="form-check-label">
-									3
-									</span>
-								</label>
-							</div>
-						</div>
-					</div>
+    <div class="card-body">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="templateSel">Template</label>
+          <select id="templateSel" class="custom-select">
+            <option selected>Encourage PTO / Rest</option>
+            <option>Focus Time & After-hours</option>
+            <option>Wellness Check-in</option>
+            <option>Kudos & Recognition</option>
+          </select>
+          <div class="template-hint mt-1">Use when someone hasn't taken PTO recently.</div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="previewAs">Preview as</label>
+          <select id="previewAs" class="custom-select">
+            <option>Alex Santos</option>
+            <option>Bianca Cruz</option>
+            <option>Carlo Dizon</option>
+          </select>
+        </div>
+      </div>
 
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Sizes</h5>
-						</div>
-						<div class="card-body">
-							<input class="form-control form-control-lg mb-3" type="text" placeholder="Large input">
-							<input class="form-control mb-3" type="text" placeholder="Medium input">
-							<input class="form-control form-control-sm" type="text" placeholder="Small input">
-						</div>
-					</div>
-				</div>
+      <div class="form-group">
+        <label for="subjectInp">Subject</label>
+        <input id="subjectInp" type="text" class="form-control"
+               value="Time to recharge, {% templatetag openvariable %}first_name{% templatetag closevariable %}">
+      </div>
 
-				<div class="col-12 col-lg-6">
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Radios</h5>
-						</div>
-						<div class="card-body">
-							<div>
-								<label class="form-check">
-									<input class="form-check-input" type="radio" value="option1" name="radios-example" checked>
-									<span class="form-check-label">
-									Option one is this and that&mdash;be sure to include why it's great
-									</span>
-								</label>
-								<label class="form-check">
-									<input class="form-check-input" type="radio" value="option2" name="radios-example">
-									<span class="form-check-label">
-									Option two can be something else and selecting it will deselect option one
-									</span>
-								</label>
-								<label class="form-check">
-									<input class="form-check-input" type="radio" value="option3" name="radios-example" disabled>
-									<span class="form-check-label">
-									Option three is disabled
-									</span>
-								</label>
-							</div>
-							<div>
-								<label class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="inline-radios-example" value="option1">
-									<span class="form-check-label">
-									1
-									</span>
-								</label>
-								<label class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="inline-radios-example" value="option2">
-									<span class="form-check-label">
-									2
-									</span>
-								</label>
-								<label class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="inline-radios-example" value="option3" disabled>
-									<span class="form-check-label">
-									3
-									</span>
-								</label>
-							</div>
-						</div>
-					</div>
+      <div class="form-group mb-1">
+        <label for="bodyInp">Message</label>
+        <textarea id="bodyInp" rows="8" class="form-control">Hi {% templatetag openvariable %}first_name{% templatetag closevariable %},
 
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Switches</h5>
-						</div>
-						<div class="card-body">
-							<div class="form-check form-switch">
-								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-								<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-							</div>
-							<div class="form-check form-switch">
-								<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-								<label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
-							</div>
-							<div class="form-check form-switch">
-								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
-								<label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
-							</div>
-							<div class="form-check form-switch">
-								<input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
-								<label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
-							</div>
-						</div>
-					</div>
+I noticed you haven't taken time off lately. If it helps, you still have {% templatetag openvariable %}pto_balance{% templatetag closevariable %} available.
+It's completely your call, but a short break can do wonders. If you'd like, {% templatetag openvariable %}manager_name{% templatetag closevariable %} can help plan coverage.
 
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Selects</h5>
-						</div>
-						<div class="card-body">
-							<select class="form-control mb-3">
-								<option selected>Open this select menu</option>
-								<option>One</option>
-								<option>Two</option>
-								<option>Three</option>
-							</select>
+Resources: {% templatetag openvariable %}link{% templatetag closevariable %}
 
-							<select multiple class="form-control">
-								<option>Open this select menu</option>
-								<option>One</option>
-								<option>Two</option>
-								<option>Three</option>
-							</select>
-						</div>
-					</div>
+Take care,
+HR</textarea>
+      </div>
 
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Disabled</h5>
-						</div>
-						<div class="card-body">
-							<div class="mb-3">
-								<label class="form-label">Disabled input</label>
-								<input type="text" class="form-control" placeholder="Disabled input" disabled>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Disabled select menu</label>
-								<select class="form-control" disabled>
-									<option>Disabled select</option>
-								</select>
-							</div>
-							<label class="form-check">
-								<input class="form-check-input" type="checkbox" value="" disabled>
-								<span class="form-check-label">
-									Can't check this
-								</span>
-							</label>
-						</div>
-					</div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <small class="text-muted">Tone tips: be supportive, specific, optional. Avoid performance implications.</small>
+        <small class="text-muted">~68 words</small>
+      </div>
 
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Read only</h5>
-						</div>
-						<div class="card-body">
-							<input class="form-control" type="text" placeholder="Readonly input" readonly>
-						</div>
-					</div>
-				</div>
-			</div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Schedule</label>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="sendNow" name="schedule" class="custom-control-input" checked>
+            <label class="custom-control-label" for="sendNow">Send now</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="sendLater" name="schedule" class="custom-control-input">
+            <label class="custom-control-label" for="sendLater">Schedule for later</label>
+          </div>
+          <div class="form-inline mt-2">
+            <input id="dateInp" type="date" class="form-control mr-2" value="2025-08-26">
+            <input id="timeInp" type="time" class="form-control" value="09:00">
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="linkInp">Optional link (EAP, wellness hub)</label>
+          <input id="linkInp" type="url" class="form-control" value="https://intranet/wellness">
+        </div>
+      </div>
 
-		</div>
-	</main>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="preview">
+Subject: Time to recharge, Alex
 
+Hi Alex,
+
+I noticed you haven't taken time off lately. If it helps, you still have 5 days available.
+It's completely your call, but a short break can do wonders. If you'd like, Jamie Cruz can help plan coverage.
+
+Resources: https://intranet/wellness
+
+Take care,
+HR
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="alert alert-light mb-2">
+            <strong>Privacy</strong> · Sent 1:1 to the employee. Not visible to peers. Logs visible to HR.
+          </div>
+          <ul class="small mb-0 text-muted">
+            <li>Opt-in data use and clear purpose.</li>
+            <li>Never imply performance consequences.</li>
+            <li>Offer easy opt-out and support resources.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-outline-secondary mr-2">Save draft</button>
+        <button class="btn btn-primary">Schedule &amp; Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Log (static) -->
+    <div class="card shadow-sm mt-3">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <h3 class="card-title mb-0">Nudge Log</h3>
+        <div class="small text-muted">Demo data</div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th>When</th>
+                <th>Employee</th>
+                <th>Channels</th>
+                <th>Subject</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2025-08-01 09:10</td>
+                <td>Alex Santos</td>
+                <td>Email</td>
+                <td>Time to recharge, Alex</td>
+                <td><span class="badge badge-success">Sent</span></td>
+              </tr>
+              <tr>
+                <td>2025-08-05 17:45</td>
+                <td>Carlo Dizon</td>
+                <td>Email, Teams</td>
+                <td>Let’s protect your focus time, Carlo</td>
+                <td><span class="badge badge-success">Sent</span></td>
+              </tr>
+              <tr>
+                <td>2025-08-10 09:15</td>
+                <td>Bianca Cruz</td>
+                <td>Email</td>
+                <td>Block time to recharge this Friday</td>
+                <td><span class="badge badge-success">Sent</span></td>
+              </tr>
+              <tr>
+                <td>2025-08-12 20:05</td>
+                <td>Jordan Reyes</td>
+                <td>Teams</td>
+                <td>Checking in on you, Jordan</td>
+                <td><span class="badge badge-success">Sent</span></td>
+              </tr>
+              <tr>
+                <td>2025-08-15 18:05</td>
+                <td>Faye Lim</td>
+                <td>Email, Teams</td>
+                <td>Let’s plan your PTO, Faye</td>
+                <td><span class="badge badge-secondary">Scheduled</span></td>
+              </tr>
+              <tr>
+                <td>2025-08-18 08:30</td>
+                <td>Gina Torres</td>
+                <td>Email</td>
+                <td>Welcome &amp; wellness resources</td>
+                <td><span class="badge badge-success">Sent</span></td>
+              </tr>
+              <tr>
+                <td>2025-08-20 11:20</td>
+                <td>Henry Lee</td>
+                <td>Email</td>
+                <td>Thank you for your contributions, Henry</td>
+                <td><span class="badge badge-success">Sent</span></td>
+              </tr>
+              <tr>
+                <td>2025-08-22 14:00</td>
+                <td>Quinn Rivera</td>
+                <td>Teams</td>
+                <td>Focus Time &amp; After-hours norms</td>
+                <td><span class="badge badge-secondary">Scheduled</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
 {% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
 {% block javascripts %}{% endblock javascripts %}

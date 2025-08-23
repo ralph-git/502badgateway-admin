@@ -7,7 +7,7 @@
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
-						Pages
+						Overview
 					</li>
 
 					<li class="sidebar-item {% if 'index' in segment %} active {% endif %}">
@@ -28,44 +28,22 @@
 						</a>
 					</li>
 
-					<li class="sidebar-item {% if 'invoice' in segment %} active {% endif %}">
-						<a class="sidebar-link" href="pages-invoice.html">
-							<i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Invoice</span>
-						</a>
-					</li>
-
 					<li class="sidebar-item {% if 'blank' in segment %} active {% endif %}">
 						<a class="sidebar-link" href="pages-blank.html">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
 						</a>
 					</li>
 
-					<li class="sidebar-item">
-						<a href="#auth" data-toggle="collapse" class="sidebar-link collapsed">
-							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Auth</span>
-						</a>
-						<ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign In</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign Up</a></li>
-						</ul>
-					</li>
 
 					<li class="sidebar-header">
 						Resource Management
 					</li>
-					<li class="sidebar-item">
-						<a data-target="#ui" data-toggle="collapse" class="sidebar-link collapsed">
+
+
+					<li class="sidebar-item {% if 'icons' in segment %} active {% endif %}">
+						<a class="sidebar-link" href="ui-buttons.html">
               				<i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Employee Dashboard</span>
             			</a>
-						<ul id="ui" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">Alerts</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html"></a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html">Warnings</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-general.html">General</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-grid.html">Grid</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-modals.html">Modals</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html">Typography</a></li>
-						</ul>
 					</li>
 
 					<li class="sidebar-item {% if 'icons' in segment %} active {% endif %}">
@@ -76,11 +54,11 @@
 
 					<li class="sidebar-item">
 						<a data-target="#forms" data-toggle="collapse" class="sidebar-link collapsed">
-              				<i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">HR Notifications</span>
+              				<i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Employee Wellness</span>
             			</a>
 						<ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Employee Behavior</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Wellness Check-in</a></li>
 						</ul>
 					</li>
 
@@ -118,16 +96,7 @@
 
 				</ul>
 
-				<div class="sidebar-cta">
-					<div class="sidebar-cta-content">
-						<strong class="d-inline-block mb-2">Want More?</strong>
-						<div class="mb-3 text-sm">
-							For LIVE support and more starters access AppSeed.
-						</div>
-						<a href="https://appseed.us" 
-                           target="_blank" class="btn btn-primary btn-block">AppSeed</a>
-					</div>
-				</div>
+
 			</div>
 		</nav>
 
